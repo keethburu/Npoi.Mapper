@@ -1,16 +1,14 @@
-# Npoi.Mapper
-[![Build status](https://ci.appveyor.com/api/projects/status/po6jm228g9llu6md/branch/master?svg=true&passingText=master%20-%20OK&failingText=master%20-%20Failed)](https://ci.appveyor.com/project/donnytian/npoi-mapper/branch/master)
+# Robintty.Npoi.Mapper
+
+This is a fork of [donnytian/Npoi.Mapper](https://github.com/donnytian/Npoi.Mapper). I created it to extend the project with some functionality I personally need and to keep it more up to date since the original project has gone kind of stale.
+
+## Original Description
 
 Convention-based mapper between strong typed object and Excel data via NPOI (Telegram group https://t.me/npoidevs).  
 This project comes up with a task of my work, I am using it a lot in my project. Feel free to file bugs or raise pull requests...
+v3 now support to import and export as **`dynamic`** type.
 
-<font color=brown>v3 now support to import and export as **`dynamic`** type.</font>
-## Install from NuGet
-In the Package Manager Console:
-
-`PM> Install-Package Npoi.Mapper`
-
-## Get strong-typed objects from Excel (XLS or XLSX)
+### Get strong-typed objects from Excel (XLS or XLSX)
 
 ```C#
 var mapper = new Mapper("Book1.xlsx");
@@ -27,20 +25,25 @@ DateTime date = obj3[0].DateColumn;
 double number = obj3[0].NumberColumn;
 string text = obj3[0].AC; // If the column doesn't have a header name, Excel display name like "AC" will be populated.
 ```
+
 More use cases please check out source in "test" project.
 
-## Export objects to Excel (XLS or XLSX)
+### Export objects to Excel (XLS or XLSX)
 
-### 1. Export objects.
+#### 1. Export objects
+
 Set **`overwrite`** parameter to false to use existing columns and formats, otherwise always create new file.
+
 ```C#
 //var objects = ...
 var mapper = new Mapper();
 mapper.Save("test.xlsx",  objects, "newSheet", overwrite: false);
 ```
 
-### 2. Export tracked objects.
+#### 2. Export tracked objects
+
 Set **`TrackObjects`** property to true, objects can be tracked after a `Take` method and then you can modify and save them back.
+
 ```C#
 var mapper = new Mapper("Book1.xlsx");
 mapper.TrackObjects = true; // It's default true.
@@ -49,8 +52,10 @@ var objectsDict = mapper.Objects; // Also you can directly access objects in a s
 mapper.Save("test.xlsx",  "sheet2");
 ```
 
-### 3. Put different types of objects into memory workbook then export together.
+#### 3. Put different types of objects into memory workbook then export together
+
 Set **`overwrite`** parameter to true, existing data rows will be overwritten, otherwise new rows will be appended.
+
 ```C#
 var mapper = new Mapper("Book1.xlsx");
 mapper.Put(products, "sheet1", true);
@@ -58,7 +63,7 @@ mapper.Put(orders, "sheet2", false);
 mapper.Save("Book1.xlsx");
 ```
 
-## Features
+### Features
 
 1. Import POCOs from Excel file (XLS or XLSX) via [NPOI](https://github.com/tonyqus/npoi)
 2. Export objects to Excel file (XLS or XLSX) (inspired by [ExcelMapper](https://github.com/mganss/ExcelMapper))
@@ -70,19 +75,19 @@ mapper.Save("Book1.xlsx");
 8. Support custom logic to handle multiple columns for collection property
 9. Support custom format for exporting (see Column format section)
 
-## Column mapping order
+### Column mapping order
 
 1. Fluent method `Map<T>`
 2. `ColumnAttribute`
 3. Default naming convention (see below section)
 
-## Default naming convention for column header mapping
+### Default naming convention for column header mapping
 
 1. Map column to property by name.
 2. Map column to the Name of `DisplayAttribute` of property.
-3. For column header, ignore non-alphabetical chars ("-", "_", "|' etc.), and truncate from first braket ("(", "[", "{"), then map to property name. Ignored chars and truncation chars can be customized.
+3. For column header, ignore non-alphabetical chars ("-", "\_", "|' etc.), and truncate from first braket ("(", "[", "{"), then map to property name. Ignored chars and truncation chars can be customized.
 
-## Explicit column mapping
+### Explicit column mapping
 
 By fluent mapping methods:
 
@@ -101,28 +106,28 @@ Or by Attributes tagged on object properties:
     public class SampleClass
     {
         // Other properties...
-        
+
         [Display(Name = "Display Name")]
         public string DisplayNameProperty { get; set; }
-        
+
         [Column(1)]
         public string Property1 { get; set; }
-        
+
         [Column("ColumnABC")]
         public string Property2 { get; set; }
-        
+
         [Column(CustomFormat = "0%")]
         public double CustomFormatProperty { get; set; }
-        
+
         [UseLastNonBlankValue]
         public string UseLastNonBlankValueAttributeProperty { get; set; }
-        
+
         [Ignore]
         public string IgnoredAttributeProperty { get; set; }
     }
 ```
 
-## Column format
+### Column format
 
 When you use a format during import, it will try to parse string value with specified format.
 
@@ -142,7 +147,7 @@ Or by `ColumnAttribute`:
     {
         [Column(CustomFormat = "yyyy-MM-dd")]
         public DateTime DateTimeFormatProperty { get; set; }
-        
+
         [Column(CustomFormat = "0%")]
         public double CustomFormatProperty { get; set; }
     }
@@ -153,9 +158,11 @@ Or if you want to set format for all properties in a same type:
 ```C#
     mapper.UseFormat(typeof(DateTime), "yyyy.MM.dd hh.mm.ss");
 ```
+
 You can find format details at **[custom formats](https://support.office.com/en-us/article/Create-or-delete-a-custom-number-format-78f2a361-936b-4c03-8772-09fab54be7f4)**.
 
-## Custom column resolver
+### Custom column resolver
+
 Use overload of **`Map`** method to handle complex scenarios. Such as data conversion or retrieve values cross columns for a collection property.
 
 ```C#
@@ -210,5 +217,3 @@ Use overload of **`Map`** method to handle complex scenarios. Such as data conve
                 }
                 );
 ```
-
-## [Change log](Changelog.md)
