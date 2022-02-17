@@ -1,24 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30225.117
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB3C280B-3314-473F-BEE5-9BC0C2ABCF6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robintty.Npoi.Mapper", "Robintty.Npoi.Mapper\Robintty.Npoi.Mapper.csproj", "{15342310-681A-435B-88E3-9099B6822EDF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC90AB2B-1D74-4E52-BAA2-3D73FDC3BEED}"
-	ProjectSection(SolutionItems) = preProject
-		..\_config.yml = ..\_config.yml
-		..\appveyor.yml = ..\appveyor.yml
-		..\Changelog.md = ..\Changelog.md
-		..\LICENSE = ..\LICENSE
-		..\README.md = ..\README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5A4C63EC-A575-49BD-822C-1F4124902E1B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Npoi.Mapper", "src\Npoi.Mapper\Npoi.Mapper.csproj", "{D3ACB160-2EB9-4307-B31A-FF9693E433DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robintty.Npoi.Mapper.Tests", "Robintty.Npoi.Mapper.Tests\Robintty.Npoi.Mapper.Tests.csproj", "{C3891B83-26CC-4585-8020-C467D1125690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,21 +13,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3ACB160-2EB9-4307-B31A-FF9693E433DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3ACB160-2EB9-4307-B31A-FF9693E433DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3ACB160-2EB9-4307-B31A-FF9693E433DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3ACB160-2EB9-4307-B31A-FF9693E433DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15342310-681A-435B-88E3-9099B6822EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15342310-681A-435B-88E3-9099B6822EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15342310-681A-435B-88E3-9099B6822EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15342310-681A-435B-88E3-9099B6822EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3891B83-26CC-4585-8020-C467D1125690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3891B83-26CC-4585-8020-C467D1125690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3891B83-26CC-4585-8020-C467D1125690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3891B83-26CC-4585-8020-C467D1125690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E6D11BDB-426B-4C9B-B380-FF8F2B1DE527} = {5A4C63EC-A575-49BD-822C-1F4124902E1B}
-		{D3ACB160-2EB9-4307-B31A-FF9693E433DC} = {CB3C280B-3314-473F-BEE5-9BC0C2ABCF6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE113E84-B006-43D8-AE97-D210EA8C587B}
