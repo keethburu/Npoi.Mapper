@@ -31,7 +31,6 @@ namespace test
         {
             // Arrange
             var stream = new FileStream("Book1.xlsx", FileMode.Open);
-
             // Act
             var importer = new Mapper(stream);
             var items = importer.Take<TestClass>("TestClass").ToList();
@@ -41,7 +40,7 @@ namespace test
             Assert.IsNotNull(importer.Workbook);
             Assert.AreEqual(3, items.Count);
             Assert.IsTrue(items[1].Value.DateTime.Year == 2017);
-            Assert.IsTrue(Math.Abs(items[1].Value.Double - 1.2345) < 0.00001);
+            Assert.IsTrue(Math.Abs(items[1].Value.Double - 12345) < 0.00001);
         }
 
         [Test]
@@ -60,7 +59,7 @@ namespace test
             Assert.IsNotNull(importer.Workbook);
             Assert.AreEqual(3, items.Count);
             Assert.IsTrue(items[1].Value.DateTime.Year == 2017);
-            Assert.IsTrue(Math.Abs(items[1].Value.Double - 1.2345) < 0.00001);
+            Assert.IsTrue(Math.Abs(items[1].Value.Double - 12345) < 0.00001);
         }
 
         [Test]
